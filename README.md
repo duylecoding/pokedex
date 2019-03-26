@@ -1,5 +1,7 @@
-# CSCE-470-500-Project
+# CSCE-470-500-Project (QuickDex)
 This is the class project for CSCE-470-500, or Information Storage and Retrieval. We were tasked to craft an oringial project based on topics relevant to the course, such as search queries.
+
+We eventually decided on "QuickDex" an information retrieval program for Pokémon data. See the Project Abstract document for further details.
 
 ## Relevant Documents
 * [Final Presentation](https://docs.google.com/presentation/d/1-LMI-97WK9heu-Pxjh5ZgIfs8c6ShvSUXLmRua5kJ9g/edit)
