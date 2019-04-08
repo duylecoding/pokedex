@@ -1,4 +1,4 @@
-/*
+"""
 
 	Team Members:
 		Conner Joseph Brewster (UIN: 925004339)
@@ -13,11 +13,12 @@
 	
 	Main.java - primary Java file.
 
-*/
+"""
 
-public class Main {
-	
-	public static void main (String[] args) {
-		
-	}
-}
+# Main function.
+def main():
+	# Main code
+
+# Run program.
+if __name__ == "__main__":
+	main()
