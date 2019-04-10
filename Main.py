@@ -23,6 +23,33 @@ import matplotlib.pyplot as plt
 
 url = 'http://pokemondb.net/pokedex/all'
 
+def print_full(x):
+    pd.set_option('display.max_rows', len(x))
+    print(x)
+    pd.reset_option('display.max_rows')
+
+def form_dictionary(tr_elements, col):
+	for j in range(1, len(tr_elements)):
+		T = tr_elements[j]
+		if len(T) != 10:
+			break
+		i = 0
+
+		for t in T.iterchildren():
+			data = t.text_content()
+			if i > 0:
+				try:
+					data = int(data)
+				except:
+					pass
+			col[i][1].append(data)
+			i +=1
+
+	poke_dict = {title:column for (title,column) in col}
+	df = pd.DataFrame(poke_dict)
+	df.head()
+	print_full(df)
+
 def print_col_names(tr_elements):
 	col = []
 	i = 0
@@ -31,6 +58,8 @@ def print_col_names(tr_elements):
 		name = t.text_content()
 		print('%d:"%s"'%(i,name))
 		col.append((name,[]))
+
+	form_dictionary(tr_elements, col)
 
 # test function, mostly useless
 def print_tr_length(tr_elements):
@@ -43,7 +72,7 @@ def main():
 	doc = lh.fromstring(page.content)
 	tr_elements = doc.xpath('//tr')
 
-	print_tr_length(tr_elements)
+	#print_tr_length(tr_elements)
 	print_col_names(tr_elements)
 
 # Run program.
