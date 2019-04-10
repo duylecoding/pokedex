@@ -23,12 +23,28 @@ import matplotlib.pyplot as plt
 
 url = 'http://pokemondb.net/pokedex/all'
 
+def print_col_names(tr_elements):
+	col = []
+	i = 0
+	for t in tr_elements[0]:
+		i += 1
+		name = t.text_content()
+		print('%d:"%s"'%(i,name))
+		col.append((name,[]))
+
+# test function, mostly useless
+def print_tr_length(tr_elements):
+
+	[print(len(T)) for T in tr_elements[:12]]
+
 # Main function.
 def main():
 	page = requests.get(url)
 	doc = lh.fromstring(page.content)
 	tr_elements = doc.xpath('//tr')
-	[print(len(T)) for T in tr_elements[:12]]
+
+	print_tr_length(tr_elements)
+	print_col_names(tr_elements)
 
 # Run program.
 if __name__ == "__main__":
