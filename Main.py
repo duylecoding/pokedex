@@ -14,10 +14,21 @@
 	Main.java - primary Java file.
 
 """
+import requests, six
+import lxml.html as lh
+from itertools import cycle, islice
+from matplotlib import colors
+import pandas as pd
+import matplotlib.pyplot as plt
+
+url = 'http://pokemondb.net/pokedex/all'
 
 # Main function.
 def main():
-	# Main code
+	page = requests.get(url)
+	doc = lh.fromstring(page.content)
+	tr_elements = doc.xpath('//tr')
+	[print(len(T)) for T in tr_elements[:12]]
 
 # Run program.
 if __name__ == "__main__":
